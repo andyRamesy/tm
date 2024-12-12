@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc:
+  reactive_button:
 
 dev_dependencies:
   flutter_test:
