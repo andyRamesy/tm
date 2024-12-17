@@ -7,13 +7,14 @@ environment:
   sdk: ^3.5.3
 
 dependencies:
-  dartz: ^0.10.1
-  dio: ^5.7.0
   flutter:
     sdk: flutter
+  dartz:
+  dio:
   flutter_bloc:
-  logger: ^2.5.0
-  reactive_button: ^0.0.9
+  logger:
+  reactive_button:
+  get_it:
 
 dev_dependencies:
   flutter_test:
