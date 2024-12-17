@@ -12,11 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc:
-<<<<<<< HEAD
-  reactive_button:
-=======
+  logger: ^2.5.0
   reactive_button: ^0.0.9
->>>>>>> d2ad255880e0fba86037d5a4905c1526fd5b0efe
 
 dev_dependencies:
   flutter_test:
