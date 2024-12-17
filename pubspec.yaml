@@ -4,13 +4,19 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ^3.5.4
+  sdk: ^3.5.3
 
 dependencies:
+  dartz: ^0.10.1
+  dio: ^5.7.0
   flutter:
     sdk: flutter
   flutter_bloc:
+<<<<<<< HEAD
   reactive_button:
+=======
+  reactive_button: ^0.0.9
+>>>>>>> d2ad255880e0fba86037d5a4905c1526fd5b0efe
 
 dev_dependencies:
   flutter_test:
