@@ -23,3 +23,20 @@ class AuthApiServiceImpl extends AuthApiService {
     }
   }
 }
+
+
+class AuthFirebaseServiceImpl extends AuthApiService {
+  
+  @override
+  Future<Either> signup(SignupRequestParams params) async {
+    try {
+      var response = await sl<DioClient>().post(
+        ApiUrl.signup,
+        data: params.toMap(),
+      );
+      return Right(response.data);
+    } on DioException catch (e) {
+      return Left(e.response!.data['message']);
+    }
+  }
+}
