@@ -7,6 +7,7 @@ import 'package:tmdb_clean/data/auth/repositories/auth/auth.dart';
 import 'package:tmdb_clean/data/auth/sources/auth_api_service.dart';
 import 'package:tmdb_clean/domain/auth/usecases/signup.dart';
 import 'package:tmdb_clean/presentation/auth/pages/signin.dart';
+import 'package:tmdb_clean/service_locator.dart';
 
 class SignupPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
@@ -24,26 +25,22 @@ class SignupPage extends StatelessWidget {
   Widget _emailField() {
     return TextField(
       controller: _emailController,
-      decoration: InputDecoration(hintText: 'Email'),
+      decoration: const InputDecoration(hintText: 'Email'),
     );
   }
 
   Widget _passwordField() {
     return TextField(
       controller: _passwordController,
-      decoration: InputDecoration(hintText: 'Password'),
+      decoration: const InputDecoration(hintText: 'Password'),
     );
   }
 
   Widget _signinButton() {
     return ReactiveButton(
       onPressed: () async {
-        await SingupUseCase(
-                authRepository:
-                    AuthRepositoryImpl(authApiService: AuthApiServiceImpl()))
-            .call(SignupRequestParams(
-                email: _emailController.text,
-                password: _passwordController.text));
+        await sl<SingupUseCase>().call(SignupRequestParams(
+            email: _emailController.text, password: _passwordController.text));
       },
       onSuccess: () {},
       onFailure: (error) {},
@@ -58,7 +55,7 @@ class SignupPage extends StatelessWidget {
           style: const TextStyle(color: Colors.blue),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
-              AppNavigation.push(context, const SigninPage());
+              AppNavigation.push(context, SigninPage());
             })
     ]));
   }
