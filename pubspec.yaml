@@ -15,6 +15,7 @@ dependencies:
   logger:
   reactive_button:
   get_it:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:

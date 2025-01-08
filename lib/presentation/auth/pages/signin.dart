@@ -1,10 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_button/reactive_button.dart';
+import 'package:tmdb_clean/common/helper/message/display_message.dart';
 import 'package:tmdb_clean/common/helper/navigation/app_navigation.dart';
 import 'package:tmdb_clean/data/auth/models/signin_requrest_params.dart';
 import 'package:tmdb_clean/domain/auth/usecases/signin.dart';
 import 'package:tmdb_clean/presentation/auth/pages/signup.dart';
+import 'package:tmdb_clean/presentation/home/pages/home.dart';
 import 'package:tmdb_clean/service_locator.dart';
 
 class SigninPage extends StatelessWidget {
@@ -34,14 +36,18 @@ class SigninPage extends StatelessWidget {
     );
   }
 
-  Widget _signinButton() {
+  Widget _signinButton(BuildContext context) {
     return ReactiveButton(
       onPressed: () async {
         await sl<SigninUseCase>().call(SigninRequrestParams(
             email: _emailController.text, password: _passwordController.text));
       },
-      onSuccess: () {},
-      onFailure: (error) {},
+      onSuccess: () {
+        AppNavigation.pushAndRemove(context, const HomePage());
+      },
+      onFailure: (error) {
+        DisplayMessage.errorMessage(error, context);
+      },
     );
   }
 
@@ -79,7 +85,7 @@ class SigninPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              _signinButton(),
+              _signinButton(context),
               const SizedBox(
                 height: 30,
               ),
