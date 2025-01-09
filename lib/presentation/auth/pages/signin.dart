@@ -38,14 +38,12 @@ class SigninPage extends StatelessWidget {
 
   Widget _signinButton(BuildContext context) {
     return ReactiveButton(
-      onPressed: () async {
-        await sl<SigninUseCase>().call(SigninRequrestParams(
-            email: _emailController.text, password: _passwordController.text));
-      },
-      onSuccess: () {
+      onPressed: () async => sl<SigninUseCase>().call(SigninRequrestParams(
+          email: _emailController.text, password: _passwordController.text)),
+      onSuccess: () async {
         AppNavigation.pushAndRemove(context, const HomePage());
       },
-      onFailure: (error) {
+      onFailure: (error) async {
         DisplayMessage.errorMessage(error, context);
       },
     );

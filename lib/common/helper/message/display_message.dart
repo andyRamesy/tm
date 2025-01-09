@@ -7,6 +7,6 @@ class DisplayMessage {
       behavior: SnackBarBehavior.floating,
     );
     ScaffoldMessenger.of(context).showSnackBar(snackbar);
-    print('Error: $message');
+    print('Error eto: $message');
   }
 }
