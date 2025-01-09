@@ -9,8 +9,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dartz:
+  dio:
   flutter_bloc:
-  reactive_button: ^0.0.9
+  logger:
+  reactive_button:
+  get_it:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:

@@ -1,11 +1,19 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_button/reactive_button.dart';
+import 'package:tmdb_clean/common/helper/message/display_message.dart';
 import 'package:tmdb_clean/common/helper/navigation/app_navigation.dart';
+import 'package:tmdb_clean/data/auth/models/signin_requrest_params.dart';
+import 'package:tmdb_clean/domain/auth/usecases/signin.dart';
 import 'package:tmdb_clean/presentation/auth/pages/signup.dart';
+import 'package:tmdb_clean/presentation/home/pages/home.dart';
+import 'package:tmdb_clean/service_locator.dart';
 
 class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  SigninPage({super.key});
 
   Widget _signinText() {
     return const Text(
@@ -15,22 +23,29 @@ class SigninPage extends StatelessWidget {
   }
 
   Widget _emailField() {
-    return const TextField(
-      decoration: InputDecoration(hintText: 'Email'),
+    return TextField(
+      controller: _emailController,
+      decoration: const InputDecoration(hintText: 'Email'),
     );
   }
 
   Widget _passwordField() {
-    return const TextField(
-      decoration: InputDecoration(hintText: 'Password'),
+    return TextField(
+      controller: _passwordController,
+      decoration: const InputDecoration(hintText: 'Password'),
     );
   }
 
-  Widget _signinButton() {
+  Widget _signinButton(BuildContext context) {
     return ReactiveButton(
-      onPressed: () async {},
-      onSuccess: () {},
-      onFailure: (error) {},
+      onPressed: () async => sl<SigninUseCase>().call(SigninRequrestParams(
+          email: _emailController.text, password: _passwordController.text)),
+      onSuccess: () async {
+        AppNavigation.pushAndRemove(context, const HomePage());
+      },
+      onFailure: (error) async {
+        DisplayMessage.errorMessage(error, context);
+      },
     );
   }
 
@@ -42,7 +57,7 @@ class SigninPage extends StatelessWidget {
           style: const TextStyle(color: Colors.blue),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
-              AppNavigation.push(context, const SignupPage());
+              AppNavigation.push(context, SignupPage());
             })
     ]));
   }
@@ -68,7 +83,7 @@ class SigninPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              _signinButton(),
+              _signinButton(context),
               const SizedBox(
                 height: 30,
               ),
