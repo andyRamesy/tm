@@ -16,6 +16,7 @@ dependencies:
   reactive_button:
   get_it:
   shared_preferences:
+  flutter_svg:
 
 dev_dependencies:
   flutter_test:
@@ -27,3 +28,4 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/vectors/

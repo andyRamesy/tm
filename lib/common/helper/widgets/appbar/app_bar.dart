@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:tmdb_clean/core/configs/theme/app_colors.dart';
 
 class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
@@ -7,12 +8,14 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Color? backgroundColor;
   final bool hideBack;
   final double? height;
+  final Widget? leading;
   const BasicAppbar(
       {this.title,
       this.hideBack = false,
       this.action,
       this.backgroundColor,
       this.height,
+      this.leading,
       super.key});
 
   @override
@@ -37,8 +40,9 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
                 width: 50,
                 decoration: const BoxDecoration(
                     color: AppColors.secondBackground, shape: BoxShape.circle),
-                child: const Icon(Icons.arrow_back_ios_new,
-                    size: 15, color: Colors.white),
+                child: leading ??
+                    const Icon(Icons.arrow_back_ios_new,
+                        size: 15, color: Colors.white),
               ),
             ),
     );
