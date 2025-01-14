@@ -13,7 +13,7 @@ void setupServiceLocator() {
   sl.registerSingleton<DioClient>(DioClient());
 
   //services
-  sl.registerSingleton<AuthApiService>(AuthApiServiceImpl());
+  sl.registerSingleton<AuthService>(AuthApiServiceImpl());
 
   //repositories
   sl.registerSingleton<AuthRepository>(AuthRepositoryImpl());

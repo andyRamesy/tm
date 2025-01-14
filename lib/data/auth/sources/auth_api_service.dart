@@ -6,12 +6,12 @@ import 'package:tmdb_clean/data/auth/models/signin_requrest_params.dart';
 import 'package:tmdb_clean/data/auth/models/signup_request_params.dart';
 import 'package:tmdb_clean/service_locator.dart';
 
-abstract class AuthApiService {
+abstract class AuthService {
   Future<Either> signup(SignupRequestParams params);
   Future<Either> signin(SigninRequrestParams params);
 }
 
-class AuthApiServiceImpl extends AuthApiService {
+class AuthApiServiceImpl extends AuthService {
   @override
   Future<Either> signup(SignupRequestParams params) async {
     try {
