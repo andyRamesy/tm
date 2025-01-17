@@ -7,15 +7,11 @@ class TrendingCubit extends Cubit<TrendingState> {
   TrendingCubit() : super(TrendingMoviesLoading());
 
   void getTrendingMovies() async {
-    var movies = await sl<GetTrendingMoviesUseCase>().call(false);
-    movies.fold(
+    var returnedData = await sl<GetTrendingMoviesUseCase>().call(false);
+
+    returnedData.fold(
       (error) => emit(TrendingMoviesFailure(errorMessage: error)),
       (data) => emit(TrendingMoviesLoaded(movies: data)),
     );
-    // final result = await GetTrendingMoviesUseCase().call(NoParams());
-    // result.fold(
-    //   (error) => emit(TrendingMoviesFailure(errorMessage: error.toString())),
-    //   (data) => emit(TrendingMoviesLoaded(movies: data)),
-    // );
   }
 }

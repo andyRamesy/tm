@@ -8,5 +8,4 @@ class GetTrendingMoviesUseCase extends UseCase<Either,dynamic> {
   Future<Either> call(params)async {
     return await sl<MovieRepository>().getTrendingMovies();
   }
-  
 }
