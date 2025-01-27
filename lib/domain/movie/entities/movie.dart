@@ -4,7 +4,7 @@ class MovieEntity {
   final String originalTitle;
   final String overview;
   final String? backdropPath;
-  final String? posterPath;
+  final String posterPath;
   final String originalLanguage;
   final List<int> genreIds;
   final double popularity;
@@ -21,7 +21,7 @@ class MovieEntity {
     required this.originalTitle,
     required this.overview,
     this.backdropPath,
-    this.posterPath,
+    required this.posterPath,
     required this.originalLanguage,
     required this.genreIds,
     required this.popularity,

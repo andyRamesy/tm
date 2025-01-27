@@ -33,16 +33,17 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
           ? null
           : IconButton(
               onPressed: () {
-                Navigator.pop(context);
+                // Navigator.pop(context);
               },
               icon: Container(
-                height: 50,
-                width: 50,
+                height: 100,
+                width: 100,
                 decoration: const BoxDecoration(
                     color: AppColors.secondBackground, shape: BoxShape.circle),
                 child: leading ,
               ),
             ),
+      
     );
   }
 

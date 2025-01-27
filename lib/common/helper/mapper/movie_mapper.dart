@@ -14,6 +14,7 @@ class MovieMapper {
         voteAverage: movie.voteAverage,
         voteCount: movie.voteCount,
         adult: movie.adult,
-        video: movie.video);
+        video: movie.video,
+        posterPath: movie.posterPath);
   }
 }

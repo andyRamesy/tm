@@ -9,13 +9,16 @@ class MovieRepositoryImpl extends MovieRepository {
   Future<Either> getTrendingMovies() async {
     var returnedData = await sl<MovieService>().getTrendingMovies();
 
-    return returnedData.fold((error) {
-      return Left(error);
-    }, (data) {
-      var movies = List.from(data['content'])
-          .map((item) => MovieMapper.toEntity(item))
-          .toList();
-      return Right(movies);
-    });
+    return returnedData.fold(
+      (error) {
+        return Left(error);
+      },
+      (data) {
+        var movies = List.from(data['data'])
+            .map((item) => print("item: $item"))
+            .toList();
+        return Right(movies);
+      },
+    );
   }
 }
