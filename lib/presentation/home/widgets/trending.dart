@@ -16,7 +16,6 @@ class TrendingMoviesFailure extends StatelessWidget {
           if (state is TrendingMoviesLoaded) {
             return const CircularProgressIndicator();
           } else if (state is TrendingMoviesLoaded) {
-
             //
           }
           return Container();
