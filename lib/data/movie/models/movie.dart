@@ -53,23 +53,5 @@ class MovieModel {
     );
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'title': title,
-      'original_title': originalTitle,
-      'overview': overview,
-      'backdrop_path': backdropPath,
-      'poster_path': posterPath,
-      'original_language': originalLanguage,
-      'genre_ids': genreIds,
-      'popularity': popularity,
-      'release_date': releaseDate,
-      'vote_average': voteAverage,
-      'vote_count': voteCount,
-      'adult': adult,
-      'video': video,
-      'media_type': mediaType,
-    };
-  }
+
 }

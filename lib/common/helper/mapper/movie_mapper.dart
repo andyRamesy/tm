@@ -1,7 +1,8 @@
+import 'package:tmdb_clean/data/movie/models/movie.dart';
 import 'package:tmdb_clean/domain/movie/entities/movie.dart';
 
 class MovieMapper {
-  static MovieEntity toEntity(MovieEntity movie) {
+  static MovieEntity toEntity(MovieModel movie) {
     return MovieEntity(
         id: movie.id,
         title: movie.title,
@@ -15,6 +16,6 @@ class MovieMapper {
         voteCount: movie.voteCount,
         adult: movie.adult,
         video: movie.video,
-        posterPath: movie.posterPath);
+        posterPath: movie.posterPath ?? '');
   }
 }
