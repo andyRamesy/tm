@@ -7,6 +7,7 @@ import 'package:tmdb_clean/core/configs/theme/app_colors.dart';
 import 'package:tmdb_clean/domain/auth/usecases/logout.dart';
 import 'package:tmdb_clean/presentation/auth/pages/signin.dart';
 import 'package:tmdb_clean/presentation/home/widgets/trending.dart';
+import 'package:tmdb_clean/presentation/home/widgets/trending_text.dart';
 import 'package:tmdb_clean/service_locator.dart';
 
 class HomePage extends StatelessWidget {
@@ -33,13 +34,16 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: BasicAppbar(
           hideBack: false,
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: SvgPicture.asset(AppVectors.logo),
-          ),
+          leading: SvgPicture.asset(AppVectors.logo),
           action: _logout(context)),
       body: SingleChildScrollView(
-        child: TrendingMovies(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TrendingText(),
+            TrendingMovies(),
+          ],
+        ),
       ),
     );
   }
