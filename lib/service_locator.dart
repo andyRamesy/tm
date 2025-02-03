@@ -10,6 +10,7 @@ import 'package:tmdb_clean/domain/auth/usecases/logout.dart';
 import 'package:tmdb_clean/domain/auth/usecases/signin.dart';
 import 'package:tmdb_clean/domain/auth/usecases/signup.dart';
 import 'package:tmdb_clean/domain/movie/repositories/movie.dart';
+import 'package:tmdb_clean/domain/movie/usecases/get_now_playing_movies.dart';
 import 'package:tmdb_clean/domain/movie/usecases/get_trending_movies.dart';
 
 final sl = GetIt.instance;
@@ -31,4 +32,5 @@ void setupServiceLocator() {
   sl.registerSingleton<LogoutUseCase>(LogoutUseCase());
   sl.registerSingleton<IsLoggedInUseCase>(IsLoggedInUseCase());
   sl.registerSingleton<GetTrendingMoviesUseCase>(GetTrendingMoviesUseCase());
+  sl.registerSingleton<GetNowPlayingMovies>(GetNowPlayingMovies());
 }

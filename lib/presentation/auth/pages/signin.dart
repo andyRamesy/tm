@@ -9,11 +9,25 @@ import 'package:tmdb_clean/presentation/auth/pages/signup.dart';
 import 'package:tmdb_clean/presentation/home/pages/home.dart';
 import 'package:tmdb_clean/service_locator.dart';
 
-class SigninPage extends StatelessWidget {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+class SigninPage extends StatefulWidget {
 
   SigninPage({super.key});
+
+  @override
+  State<SigninPage> createState() => _SigninPageState();
+}
+
+class _SigninPageState extends State<SigninPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  bool _isObscure = true;
+  final _passwordFieldKey = GlobalKey<FormFieldState<String>>();
+
+  void _toggleObscured() {
+    setState(() {
+      _isObscure = !_isObscure;
+    });
+  }
 
   Widget _signinText() {
     return const Text(
@@ -31,8 +45,15 @@ class SigninPage extends StatelessWidget {
 
   Widget _passwordField() {
     return TextField(
+      key: _passwordFieldKey,
       controller: _passwordController,
-      decoration: const InputDecoration(hintText: 'Password'),
+      obscureText: _isObscure,
+      decoration: InputDecoration(
+          hintText: 'Password',
+          suffixIcon: IconButton(
+            icon: Icon(_isObscure ? Icons.visibility_rounded : Icons.visibility_off_rounded),
+            onPressed: _toggleObscured,
+          )),
     );
   }
 
