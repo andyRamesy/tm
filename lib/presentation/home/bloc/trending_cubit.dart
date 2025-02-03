@@ -10,7 +10,7 @@ class TrendingCubit extends Cubit<TrendingState> {
     var returnedData = await sl<GetTrendingMoviesUseCase>().call(false);
 
     returnedData.fold(
-      (error) => emit(TrendingMoviesFailure(errorMessage: error)),
+      (error) => emit(TrendingMoviesFailure(errorMessage: error['message'])),
       (data) => emit(TrendingMoviesLoaded(movies: data)),
     );
   }

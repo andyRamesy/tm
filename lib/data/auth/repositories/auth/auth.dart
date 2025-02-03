@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:tmdb_clean/data/auth/models/signin_requrest_params.dart';
@@ -44,5 +45,14 @@ class AuthRepositoryImpl extends AuthRepository {
     } else {
       return true;
     }
+  }
+
+  @override
+  Future logout() async {
+    final SharedPreferences sharedPreferences =
+        await SharedPreferences.getInstance();
+    sharedPreferences.remove('token');
+    print("token removed"); //Error log
+
   }
 }
