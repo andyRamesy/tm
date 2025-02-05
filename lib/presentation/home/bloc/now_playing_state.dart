@@ -4,14 +4,14 @@ abstract class NowPlayingState{}
 
 class NowPlayingMoviesLoading extends NowPlayingState {}
 
-class TrendingMoviesLoaded extends NowPlayingState {
+class NowPlayingMoviesLoaded extends NowPlayingState {
   final List<MovieEntity>? movies;
 
-  TrendingMoviesLoaded({required this.movies});
+  NowPlayingMoviesLoaded({required this.movies});
 }
 
-class TrendingMoviesFailure extends NowPlayingState {
+class NowPlayingMoviesFailure extends NowPlayingState {
   final String errorMessage;
 
-  TrendingMoviesFailure({required this.errorMessage});
+  NowPlayingMoviesFailure({required this.errorMessage});
 }

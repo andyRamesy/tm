@@ -5,5 +5,5 @@ class ApiUrl {
   static const String login = '${apiVersion}auth/signin';
   static const String logout = '${apiVersion}auth/logout';
   static const String trendingMovies = '${apiVersion}movie/trending';
-  static const String nowPlayingMovies = '${apiVersion}movie/now_playing';
+  static const String nowPlayingMovies = '${apiVersion}/movie/nowplaying';
 }

@@ -32,5 +32,5 @@ void setupServiceLocator() {
   sl.registerSingleton<LogoutUseCase>(LogoutUseCase());
   sl.registerSingleton<IsLoggedInUseCase>(IsLoggedInUseCase());
   sl.registerSingleton<GetTrendingMoviesUseCase>(GetTrendingMoviesUseCase());
-  sl.registerSingleton<GetNowPlayingMovies>(GetNowPlayingMovies());
+  sl.registerSingleton<GetNowPlayingMoviesUseCase>(GetNowPlayingMoviesUseCase());
 }
