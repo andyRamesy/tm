@@ -18,15 +18,9 @@ class NowPlayingMovies extends StatelessWidget {
         if (state is NowPlayingMoviesLoading) {
           return const Center(child: CircularProgressIndicator());
         } else if (state is NowPlayingMoviesLoaded) {
-          return FanCarouselImageSlider.sliderType1(
-            imagesLink: state.movies!
-                .map((item) => AppImages.movieImageBasePath + item.posterPath)
-                .toList(),
-            isAssets: false,
-            autoPlay: false,
-            sliderHeight: 400,
-            showIndicator: true,
-          );
+          return ListView.separated(itemBuilder: (context, index) {
+
+          }, separatorBuilder: separatorBuilder, itemCount: state.movies.length);
         } else if (state is NowPlayingMoviesFailure) {
           return Center(
             child: Text(state.errorMessage),

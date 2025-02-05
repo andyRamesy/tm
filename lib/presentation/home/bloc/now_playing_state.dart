@@ -5,7 +5,7 @@ abstract class NowPlayingState{}
 class NowPlayingMoviesLoading extends NowPlayingState {}
 
 class NowPlayingMoviesLoaded extends NowPlayingState {
-  final List<MovieEntity>? movies;
+  final List<MovieEntity> movies;
 
   NowPlayingMoviesLoaded({required this.movies});
 }
