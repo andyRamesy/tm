@@ -13,20 +13,23 @@ class MovieRepositoryImpl extends MovieRepository {
     return returnedData.fold((error) {
       return Left(error);
     }, (data) {
-      var movies =
-          List.from(data['data']).map((item) => MovieMapper.toEntity(MovieModel.fromJson(item))).toList();
+      var movies = List.from(data['data'])
+          .map((item) => MovieMapper.toEntity(MovieModel.fromJson(item)))
+          .toList();
       return Right(movies);
     });
   }
 
   @override
-  Future<Either> getNowPlayingMovies() async{
+  Future<Either> getNowPlayingMovies() async {
     var returnedData = await sl<MovieService>().getNowPlayingMovies();
 
-    return returnedData.fold((error){
+    return returnedData.fold((error) {
       return Left(error);
-    }, (data){
-      var nowPlayingMovies = List.from(data['data']['results']).map((item) => MovieMapper.toEntity(MovieModel.fromJson(item))).toList();
+    }, (data) {
+      var nowPlayingMovies = List.from(data['data']['results'])
+          .map((item) => MovieMapper.toEntity(MovieModel.fromJson(item)))
+          .toList();
       return Right(nowPlayingMovies);
     });
   }

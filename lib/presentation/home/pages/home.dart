@@ -9,6 +9,7 @@ import 'package:tmdb_clean/presentation/auth/pages/signin.dart';
 import 'package:tmdb_clean/presentation/home/widgets/category_text.dart';
 import 'package:tmdb_clean/presentation/home/widgets/now_playing_movies.dart';
 import 'package:tmdb_clean/presentation/home/widgets/trending_movies.dart';
+import 'package:tmdb_clean/presentation/home/widgets/trending_tv.dart';
 import 'package:tmdb_clean/service_locator.dart';
 
 class HomePage extends StatelessWidget {
@@ -47,7 +48,8 @@ class HomePage extends StatelessWidget {
             CategoryText(title: 'Now Playing  ',),
             NowPlayingMovies(),
             SizedBox(height: 16,),
-
+            CategoryText(title: 'Popular TV',),
+            TrendingTv()
           ],
         ),
       ),
