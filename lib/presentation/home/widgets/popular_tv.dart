@@ -8,8 +8,8 @@ import 'package:tmdb_clean/presentation/home/bloc/trending_state.dart';
 import 'package:tmdb_clean/presentation/home/bloc/trending_tv_cubit.dart';
 import 'package:tmdb_clean/presentation/home/bloc/trending_tv_state.dart';
 
-class TrendingTv extends StatelessWidget {
-  const TrendingTv({super.key});
+class PopularTv extends StatelessWidget {
+  const PopularTv({super.key});
 
   @override
   Widget build(BuildContext context) {

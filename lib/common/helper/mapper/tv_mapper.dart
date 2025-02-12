@@ -10,7 +10,6 @@ class TVMapper {
         originalName: tvmodel.originalName,
         overview: tvmodel.overview,
         posterPath: tvmodel.posterPath,
-        mediaType: tvmodel.mediaType,
         adult: tvmodel.adult,
         originalLanguage: tvmodel.originalLanguage,
         genreIds: tvmodel.genreIds,

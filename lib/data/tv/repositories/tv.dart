@@ -9,14 +9,15 @@ import '../../../service_locator.dart';
 class TvRepositoryImpl extends TvRepository {
   @override
   Future<Either> getTrendingTv() async {
-    var returnedData = await sl<TVService>().getTrendingTv();
+    var returnedData = await sl<TVService>().getPopularTv();
 
     return returnedData.fold((error) {
       return Left(error);
     }, (data) {
-      print("data tv: ${data['data']}");
-      var tvs = List.from(data['data'])
-          .map((item) => TVMapper.toEntity(TVModel.fromJson(item))).toList();
+      print("data tv encoded: ${data['data']['results']}");
+      var tvs = List.from(data['data']['results'])
+          .map((item) => TVMapper.toEntity(TVModel.fromJson(item)))
+          .toList();
       return Right(tvs);
     });
   }
