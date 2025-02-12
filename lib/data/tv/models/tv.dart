@@ -1,7 +1,7 @@
 class TVModel {
   TVModel({
     required this.adult,
-    required this.backdropPath,
+     this.backdropPath = '',
     required this.genreIds,
     required this.id,
     required this.originCountry,
@@ -34,7 +34,7 @@ class TVModel {
   factory TVModel.fromJson(Map<String, dynamic> json){
     return TVModel(
       adult: json["adult"],
-      backdropPath: json["backdrop_path"],
+      backdropPath: json["backdrop_path"] ?? '',
       genreIds: json["genre_ids"] == null ? [] : List<int>.from(json["genre_ids"]!.map((x) => x)),
       id: json["id"],
       originCountry: json["origin_country"] == null ? [] : List<String>.from(json["origin_country"]!.map((x) => x)),
@@ -45,7 +45,7 @@ class TVModel {
       posterPath: json["poster_path"],
       firstAirDate: DateTime.tryParse(json["first_air_date"] ?? ""),
       name: json["name"],
-      voteAverage: json['vote_average'] ,
+      voteAverage: (json['vote_average'] as num).toDouble(),
       voteCount: json["vote_count"],
     );
   }

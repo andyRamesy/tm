@@ -20,15 +20,18 @@ class PopularTv extends StatelessWidget {
           if (state is TrendingTvLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is TrendingTvLoaded) {
-            return ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return TVCard(tvEntity: state.tv[index]);
-                },
-                separatorBuilder: (context, index) => const SizedBox(
-                      width: 10.0,
-                    ),
-                itemCount: state.tv.length);
+            return SizedBox(
+              height: 300,
+              child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return TVCard(tvEntity: state.tv[index]);
+                  },
+                  separatorBuilder: (context, index) => const SizedBox(
+                        width: 10.0,
+                      ),
+                  itemCount: state.tv.length),
+            );
           } else if (state is TrendingTvFailure) {
             return Center(
               child: Text(state.errorMessage),
